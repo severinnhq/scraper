@@ -4,7 +4,12 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-let lastResults: any[] = [];
+interface SearchResult {
+  url: string;
+  title: string;
+}
+
+let lastResults: SearchResult[] = [];
 
 export async function GET() {
   console.log('GET request received, returning last results:', lastResults);
@@ -14,7 +19,7 @@ export async function GET() {
 export async function POST(request: Request) {
   console.log('POST request received');
   try {
-    const { keyword } = await request.json();
+    const { keyword } = await request.json() as { keyword: string };
     console.log('Searching for keyword:', keyword);
 
     console.log('Executing Python script...');

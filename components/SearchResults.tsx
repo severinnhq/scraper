@@ -10,7 +10,7 @@ export default function SearchResults({ keyword }: { keyword: string }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-2">Search Results for "{keyword}"</h2>
+      <h2 className="text-xl font-bold mb-2">Search Results for &quot;{keyword}&quot;</h2>
       {results.length === 0 ? (
         <p className="text-gray-600">No results found.</p>
       ) : (
